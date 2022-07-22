@@ -22,6 +22,10 @@ struct Node {
         self.nodeState = state
     }
     
+    func getState() -> NodeState {
+        return nodeState
+    }
+    
     mutating func toggleWall() {
         switch self.nodeState {
         case .empty:
