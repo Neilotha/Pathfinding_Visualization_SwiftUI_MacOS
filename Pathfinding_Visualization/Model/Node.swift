@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NodeState: Equatable {
+enum NodeState: Equatable, Hashable {
     case empty
     case start(Bool)
     case destination(Bool)
@@ -15,8 +15,9 @@ enum NodeState: Equatable {
     case visited
 }
 
-struct Node {
+struct Node: Identifiable, Hashable {
     private var nodeState: NodeState
+    let id = UUID()
     
     init(as state: NodeState) {
         self.nodeState = state

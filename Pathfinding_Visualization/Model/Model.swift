@@ -14,8 +14,8 @@ final class Model: ObservableObject {
         self.grid = [[Node]](
             repeating: [Node](repeating: Node(as: .empty), count: 30),
             count: 30)
-        self.grid[20][10] = Node(as: .start(false))
-        self.grid[20][20] = Node(as: .destination(false))
+        self.grid[16][10] = Node(as: .start(false))
+        self.grid[16][20] = Node(as: .destination(false))
     }
     
 }

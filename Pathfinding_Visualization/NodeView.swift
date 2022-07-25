@@ -25,7 +25,8 @@ struct NodeView: View {
     var body: some View {
         Rectangle()
             .fill(nodeColor(state: nodeInfo.getState()))
-            .scaledToFit()
+            .frame(width: 25, height: 25)
+    
     }
 }
 

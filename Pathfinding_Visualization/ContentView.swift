@@ -9,15 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var model = Model()
+    
+    let columns = [
+        GridItem()
+    ]
     var body: some View {
-        VStack {
-            Text("Hello, world!")
-            
-            NodeView(nodeInfo: Node(as: .empty))
+        NavigationView {
+            VStack {
+                ForEach(model.grid, id: \.self) { row in
+                    HStack {
+                        ForEach(row) { node in
+                            NodeView(nodeInfo: node)
+                        }
+                    }
+                }
+            }
         }
+        
     }
-
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
