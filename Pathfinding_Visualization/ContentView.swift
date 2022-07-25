@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var model = Model()
+    @StateObject var model = Model(maxRow: 30, maxColumn: 40)
     
-    let columns = [
-        GridItem()
-    ]
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 1) {
                 ForEach(model.grid, id: \.self) { row in
-                    HStack {
+                    HStack(spacing: 1) {
                         ForEach(row) { node in
                             NodeView(nodeInfo: node)
                         }

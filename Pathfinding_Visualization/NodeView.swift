@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct NodeView: View {
-    var nodeInfo: Node
+    @State var nodeInfo: Node
     
     private func nodeColor(state: NodeState) -> Color {
         var nodeColor: Color
         switch state {
-        case .empty:
-            nodeColor = .gray
-        default:
+        case .visited:
+            nodeColor = .blue
+        case .start:
             nodeColor = .green
+        case .destination:
+            nodeColor = .red
+        case .wall:
+            nodeColor = .black
+        default:
+            nodeColor = .white
         }
         
         return nodeColor
@@ -26,6 +32,10 @@ struct NodeView: View {
         Rectangle()
             .fill(nodeColor(state: nodeInfo.getState()))
             .frame(width: 25, height: 25)
+            .onTapGesture(count: 1) {
+                nodeInfo.toggleWall()
+                print("node: \(nodeInfo.id) was toggled!")
+            }
     
     }
 }
