@@ -10,6 +10,7 @@ import Foundation
 final class Model: ObservableObject {
     @Published var grid: [[Node]]
     
+    
     init(maxRow: Int, maxColumn: Int) {
         self.grid = [[Node]](
             repeating: [Node](repeating: Node(as: .empty), count: maxColumn),
@@ -20,8 +21,8 @@ final class Model: ObservableObject {
                 self.grid[row][column] = Node(as: .empty)
             }
         }
-        self.grid[15][10] = Node(as: .start(false))
-        self.grid[15][20] = Node(as: .destination(false))
+        self.grid[maxRow/2][maxColumn/3] = Node(as: .start(false))
+        self.grid[maxRow/2][(maxColumn/3) * 2] = Node(as: .destination(false))
     }
     
 }

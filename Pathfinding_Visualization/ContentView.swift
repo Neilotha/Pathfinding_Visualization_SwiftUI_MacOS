@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var model = Model(maxRow: 30, maxColumn: 40)
+    @State var mouseDown = false
+    var isDragging = false
     
     var body: some View {
         NavigationView {
@@ -16,7 +18,7 @@ struct ContentView: View {
                 ForEach(model.grid, id: \.self) { row in
                     HStack(spacing: 1) {
                         ForEach(row) { node in
-                            NodeView(nodeInfo: node)
+                            NodeView(nodeInfo: node, mouseDown: $mouseDown)
                         }
                     }
                 }
