@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var model = Model(maxRow: 30, maxColumn: 40)
-    @GestureState private var location: CGPoint = .zero
+    @StateObject var model = Model(maxRow: 40, maxColumn: 40)
+    @GestureState private var location: CGPoint = CGPoint(x: -1, y: -1)
+    
     
     func rectReader(node: Node) -> some View {
         return GeometryReader { (geometry) -> AnyView in
             if geometry.frame(in: .global).contains(self.location) {
                 DispatchQueue.main.async {
                     let index = node.getIndex()
-                    print("node: [\(index.row), \(index.column)] triggered")
                     self.model.grid[index.row][index.column].toggleWall()
                 }
             }
@@ -27,7 +27,6 @@ struct ContentView: View {
     }
     
     var body: some View {
-        NavigationView {
             VStack(spacing: 1) {
                 ForEach(model.grid, id: \.self) { row in
                     HStack(spacing: 1) {
@@ -41,13 +40,10 @@ struct ContentView: View {
             .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .global)
                 .updating($location) { (value, state, transaction) in
                     state = value.location
-                    print(state)
-                    print(location)
                 }.onEnded { _ in
                     
                     
                 })
-        }
         
     }
 }

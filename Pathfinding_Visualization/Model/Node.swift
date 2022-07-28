@@ -43,6 +43,8 @@ struct Node: Identifiable, Hashable {
         default:
             break
         }
+        
+        print("node: [\(row), \(column)] triggered")
     }
     
     mutating func toggleStart() {
