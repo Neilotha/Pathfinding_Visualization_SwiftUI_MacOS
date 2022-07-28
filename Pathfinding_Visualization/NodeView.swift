@@ -39,6 +39,6 @@ struct NodeView: View {
 
 struct NodeView_Previews: PreviewProvider {
     static var previews: some View {
-        NodeView(nodeInfo: Node(as: .start(false)))
+        NodeView(nodeInfo: Node(as: .start(false), index: (0, 0)))
     }
 }

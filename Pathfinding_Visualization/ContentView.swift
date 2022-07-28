@@ -15,7 +15,9 @@ struct ContentView: View {
         return GeometryReader { (geometry) -> AnyView in
             if geometry.frame(in: .global).contains(self.location) {
                 DispatchQueue.main.async {
-                    node.toggleWall()
+                    let index = node.getIndex()
+                    print("node: [\(index.row), \(index.column)] triggered")
+                    self.model.grid[index.row][index.column].toggleWall()
                 }
             }
             
@@ -27,14 +29,24 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 1) {
-                ForEach(0 ..< model.grid.count, id: \.self) { rowIndex in
+                ForEach(model.grid, id: \.self) { row in
                     HStack(spacing: 1) {
-                        ForEach(0 ..< model.grid[0].count) { columnIndex in
-                            NodeView(nodeInfo: model.grid[rowIndex][columnIndex])
+                        ForEach(row) { node in
+                            NodeView(nodeInfo: node)
+                                .background(self.rectReader(node: node))
                         }
                     }
                 }
             }
+            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .global)
+                .updating($location) { (value, state, transaction) in
+                    state = value.location
+                    print(state)
+                    print(location)
+                }.onEnded { _ in
+                    
+                    
+                })
         }
         
     }

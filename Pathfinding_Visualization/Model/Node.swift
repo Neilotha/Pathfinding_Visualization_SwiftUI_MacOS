@@ -18,9 +18,16 @@ enum NodeState: Equatable, Hashable {
 struct Node: Identifiable, Hashable {
     private var nodeState: NodeState
     let id = UUID()
+    private var row: Int
+    private var column: Int
     
-    init(as state: NodeState) {
+    init(as state: NodeState, index: (Int, Int)) {
         self.nodeState = state
+        (self.row, self.column) = index
+    }
+    
+    func getIndex() -> (row: Int, column: Int) {
+        return(self.row, self.column)
     }
     
     func getState() -> NodeState {
