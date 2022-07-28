@@ -12,11 +12,10 @@ struct ContentView: View {
     @GestureState private var location: CGPoint = CGPoint(x: -1, y: -1)
     
     
-    func rectReader(node: Node) -> some View {
+    func rectReader(index: (row: Int, column: Int)) -> some View {
         return GeometryReader { (geometry) -> AnyView in
             if geometry.frame(in: .global).contains(self.location) {
                 DispatchQueue.main.async {
-                    let index = node.getIndex()
                     self.model.grid[index.row][index.column].toggleWall()
                 }
             }
@@ -32,7 +31,7 @@ struct ContentView: View {
                     HStack(spacing: 1) {
                         ForEach(row) { node in
                             NodeView(nodeInfo: node)
-                                .background(self.rectReader(node: node))
+                                .background(self.rectReader(index: node.getIndex()))
                         }
                     }
                 }
