@@ -17,9 +17,9 @@ struct ContentView: View {
     func rectReader(index: (row: Int, column: Int)) -> some View {
         return GeometryReader { (geometry) -> AnyView in
             if geometry.frame(in: .global).contains(self.location) {
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
                     self.model.wallAction(row: index.row, column: index.column)
-                }
+//                }
             }
             
             return AnyView(Rectangle().fill(Color.clear))
