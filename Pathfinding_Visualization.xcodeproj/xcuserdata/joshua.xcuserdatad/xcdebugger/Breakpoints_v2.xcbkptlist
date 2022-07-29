@@ -14,8 +14,8 @@
             filePath = "Pathfinding_Visualization/Model/Model.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "init(maxRow:maxColumn:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
     @StateObject var model = Model(maxRow: 40, maxColumn: 40)
     @GestureState private var location: CGPoint = CGPoint(x: -1, y: -1)
@@ -16,7 +18,7 @@ struct ContentView: View {
         return GeometryReader { (geometry) -> AnyView in
             if geometry.frame(in: .global).contains(self.location) {
                 DispatchQueue.main.async {
-                    self.model.grid[index.row][index.column].toggleWall()
+                    self.model.wallAction(row: index.row, column: index.column)
                 }
             }
             
@@ -26,6 +28,7 @@ struct ContentView: View {
     }
     
     var body: some View {
+        
             VStack(spacing: 1) {
                 ForEach(model.grid, id: \.self) { row in
                     HStack(spacing: 1) {
@@ -40,7 +43,7 @@ struct ContentView: View {
                 .updating($location) { (value, state, transaction) in
                     state = value.location
                 }.onEnded { _ in
-                    
+                    self.model.resetActionState()
                     
                 })
         

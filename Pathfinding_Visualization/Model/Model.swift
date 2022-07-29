@@ -9,9 +9,20 @@ import Foundation
 
 final class Model: ObservableObject {
     @Published var grid: [[Node]]
+    private var lastUpdatedNode = (row: -1, column: -1)
     
-    func nodeObserver(row: Int, column: Int) {
-        
+    func resetActionState() {
+        lastUpdatedNode = (-1, -1)
+    }
+    
+    func wallAction(row: Int, column: Int) {
+        if row != lastUpdatedNode.row || column != lastUpdatedNode.column {
+            grid[row][column].toggleWall()
+            lastUpdatedNode = (row, column)
+        }
+        else {
+            print("node: [\(row), \(column)]duplicate trigger dected!")
+        }
     }
     
     init(maxRow: Int, maxColumn: Int) {
