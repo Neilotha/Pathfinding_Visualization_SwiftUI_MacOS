@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NodeState: Equatable, Hashable {
+enum NodeState: Equatable {
     case empty
     case start(Bool)
     case destination(Bool)
@@ -15,8 +15,8 @@ enum NodeState: Equatable, Hashable {
     case visited
 }
 
-struct Node: Identifiable, Hashable {
-    private var nodeState: NodeState
+class Node: Identifiable, ObservableObject {
+    @Published var nodeState: NodeState
     let id = UUID()
     private var row: Int
     private var column: Int
@@ -34,7 +34,7 @@ struct Node: Identifiable, Hashable {
         return nodeState
     }
     
-    mutating func toggleWall() {
+    func toggleWall() {
         switch self.nodeState {
         case .empty:
             self.nodeState = .wall
@@ -44,10 +44,10 @@ struct Node: Identifiable, Hashable {
             break
         }
         
-        print("node: [\(row), \(column)] triggered")
+//        print("node: [\(row), \(column)] triggered")
     }
     
-    mutating func toggleStart() {
+    func toggleStart() {
         
         switch self.nodeState {
         // Toggling start node to none-start nodes (empty node or wall node)
@@ -62,7 +62,7 @@ struct Node: Identifiable, Hashable {
         }
     }
     
-    mutating func toggleDestination() {
+    func toggleDestination() {
         switch self.nodeState {
         // Toggling destination node to none-destination nodes (empty node or wall node)
         case .destination(let wasWall):
@@ -76,7 +76,7 @@ struct Node: Identifiable, Hashable {
         }
     }
     
-    mutating func visite() {
+    func visite() {
         if self.nodeState == .empty {
             self.nodeState = .visited
         }

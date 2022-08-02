@@ -13,6 +13,7 @@
 		42519B2C288533360088164B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42519B2B288533360088164B /* Preview Assets.xcassets */; };
 		42519B3628853C660088164B /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42519B3528853C660088164B /* Dijkstra.swift */; };
 		42519B3828853C820088164B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42519B3728853C820088164B /* Model.swift */; };
+		4293422B2898D7FA0005D0F2 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293422A2898D7FA0005D0F2 /* Grid.swift */; };
 		42B5D637288FA80000C7E95E /* MouseEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5D636288FA80000C7E95E /* MouseEvents.swift */; };
 		42CC5935288A70AC0012CC78 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CC5934288A70AC0012CC78 /* Node.swift */; };
 		42CC5937288A8A5E0012CC78 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CC5936288A8A5E0012CC78 /* NodeView.swift */; };
@@ -27,6 +28,7 @@
 		42519B2D288533360088164B /* Pathfinding_Visualization.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pathfinding_Visualization.entitlements; sourceTree = "<group>"; };
 		42519B3528853C660088164B /* Dijkstra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
 		42519B3728853C820088164B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		4293422A2898D7FA0005D0F2 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		42B5D636288FA80000C7E95E /* MouseEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseEvents.swift; sourceTree = "<group>"; };
 		42CC5934288A70AC0012CC78 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		42CC5936288A8A5E0012CC78 /* NodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				42519B3428853C430088164B /* Pathfinding Algorithm */,
 				42519B3728853C820088164B /* Model.swift */,
+				4293422A2898D7FA0005D0F2 /* Grid.swift */,
 				42CC5934288A70AC0012CC78 /* Node.swift */,
 			);
 			path = Model;
@@ -173,6 +176,7 @@
 				42519B272885332E0088164B /* ContentView.swift in Sources */,
 				42CC5935288A70AC0012CC78 /* Node.swift in Sources */,
 				42CC5937288A8A5E0012CC78 /* NodeView.swift in Sources */,
+				4293422B2898D7FA0005D0F2 /* Grid.swift in Sources */,
 				42B5D637288FA80000C7E95E /* MouseEvents.swift in Sources */,
 				42519B252885332E0088164B /* Pathfinding_VisualizationApp.swift in Sources */,
 				42519B3628853C660088164B /* Dijkstra.swift in Sources */,

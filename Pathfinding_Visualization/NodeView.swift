@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NodeView: View {
-    var nodeInfo: Node
+    @ObservedObject var nodeInfo: Node
     
     
     private func nodeColor(state: NodeState) -> Color {
