@@ -15,6 +15,7 @@ enum NodeState: Equatable {
     case visited
 }
 
+
 class Node: Identifiable, ObservableObject {
     @Published var nodeState: NodeState
     let id = UUID()

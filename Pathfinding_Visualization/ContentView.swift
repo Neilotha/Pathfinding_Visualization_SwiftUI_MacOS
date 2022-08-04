@@ -7,10 +7,11 @@
 
 import SwiftUI
 let maxRow = 40
-let maxColumn = 40
+let maxColumn = 70
 
 
 struct ContentView: View {
+    
     @StateObject var model = Model(maxRow: maxRow, maxColumn: maxColumn)
     @GestureState private var location: CGPoint = CGPoint(x: -1, y: -1)
     
@@ -31,9 +32,9 @@ struct ContentView: View {
     var body: some View {
         let _ = Self._printChanges()
             VStack(spacing: 1) {
-                ForEach(0 ..< maxRow) { row in
+                ForEach(0 ..< maxRow, id: \.self) { row in
                     HStack(spacing: 1) {
-                        ForEach(0 ..< maxColumn) { column in
+                        ForEach(0 ..< maxColumn, id: \.self) { column in
                             NodeView(nodeInfo: model.grid.grid[row][column])
                                 .background(self.rectReader(index: model.grid.grid[row][column].getIndex()))
                         }

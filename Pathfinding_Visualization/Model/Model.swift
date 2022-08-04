@@ -7,10 +7,11 @@
 
 import Foundation
 
+
 final class Model: ObservableObject {
 //    @Published var grid: [[Node]]
     var grid: Grid
-    private var lastUpdatedNode = (row: -1, column: -1)
+    var lastUpdatedNode = (row: -1, column: -1)
     
     func resetActionState() {
         lastUpdatedNode = (-1, -1)
